@@ -1,21 +1,21 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import characterService from './characterService'
+import elixirService from './elixirService'
 
 const initialState = {
-  characters: [],
+  elixirs: [],
+  elixir: {},
   isError: false,
   isSuccess: false,
   isLoading: false,
   message: '',
 }
 
-// Get all characters
-export const getCharacters = createAsyncThunk(
-  'notes/getAll',
-  async (ticketId, thunkAPI) => {
+// Get all elixirs
+export const getElixirs = createAsyncThunk(
+  'elixirs/getAll',
+  async (_, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token
-      return await characterService.getNotes(ticketId, token)
+      return await elixirService.getElixirs()
     } catch (error) {
       const message =
         (error.response &&
@@ -29,13 +29,12 @@ export const getCharacters = createAsyncThunk(
   }
 )
 
-// Get single character
-export const getSingleCharacter = createAsyncThunk(
-    'notes/getAll',
-    async (ticketId, thunkAPI) => {
+// Get single elixir
+export const getSingleElixir = createAsyncThunk(
+    'elixirs/singleelixir',
+    async (elixirId, thunkAPI) => {
       try {
-        const token = thunkAPI.getState().auth.user.token
-        return await characterService.getNotes(ticketId, token)
+        return await elixirService.getSingleelixir(elixirId)
       } catch (error) {
         const message =
           (error.response &&
@@ -49,23 +48,23 @@ export const getSingleCharacter = createAsyncThunk(
     }
   )
 
-export const characterSlice = createSlice({
-  name: 'character',
+export const elixirSlice = createSlice({
+  name: 'elixir',
   initialState,
   reducers: {
     reset: (state) => initialState,
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getCharacters.pending, (state) => {
+      .addCase(getElixirs.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(getCharacters.fulfilled, (state, action) => {
+      .addCase(getElixirs.fulfilled, (state, action) => {
         state.isLoading = true
         state.isSuccess = true
-        state.notes = action.payload
+        state.elixirs = action.payload
       })
-      .addCase(getCharacters.rejected, (state, action) => {
+      .addCase(getElixirs.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
@@ -73,5 +72,5 @@ export const characterSlice = createSlice({
   },
 })
 
-export const { reset } = characterSlice.actions
-export default characterSlice.reducer
+export const { reset } = elixirSlice.actions
+export default elixirSlice.reducer

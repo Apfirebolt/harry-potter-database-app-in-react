@@ -1,21 +1,21 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import characterService from './characterService'
+import ingredientService from './ingredientService'
 
 const initialState = {
-  characters: [],
+  ingredients: [],
+  ingredient: {},
   isError: false,
   isSuccess: false,
   isLoading: false,
   message: '',
 }
 
-// Get all characters
-export const getCharacters = createAsyncThunk(
-  'notes/getAll',
-  async (ticketId, thunkAPI) => {
+// Get all ingredients
+export const getIngredients = createAsyncThunk(
+  'ingredients/getAll',
+  async (_, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token
-      return await characterService.getNotes(ticketId, token)
+      return await ingredientService.getIngredients()
     } catch (error) {
       const message =
         (error.response &&
@@ -29,13 +29,12 @@ export const getCharacters = createAsyncThunk(
   }
 )
 
-// Get single character
-export const getSingleCharacter = createAsyncThunk(
-    'notes/getAll',
-    async (ticketId, thunkAPI) => {
+// Get single ingredient
+export const getSingleIngredient = createAsyncThunk(
+    'ingredients/singleIngredient',
+    async (ingredientId, thunkAPI) => {
       try {
-        const token = thunkAPI.getState().auth.user.token
-        return await characterService.getNotes(ticketId, token)
+        return await ingredientService.getSingleIngredient(ingredientId)
       } catch (error) {
         const message =
           (error.response &&
@@ -49,23 +48,23 @@ export const getSingleCharacter = createAsyncThunk(
     }
   )
 
-export const characterSlice = createSlice({
-  name: 'character',
+export const ingredientSlice = createSlice({
+  name: 'ingredient',
   initialState,
   reducers: {
     reset: (state) => initialState,
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getCharacters.pending, (state) => {
+      .addCase(getIngredients.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(getCharacters.fulfilled, (state, action) => {
+      .addCase(getIngredients.fulfilled, (state, action) => {
         state.isLoading = true
         state.isSuccess = true
-        state.notes = action.payload
+        state.ingredients = action.payload
       })
-      .addCase(getCharacters.rejected, (state, action) => {
+      .addCase(getIngredients.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
@@ -73,5 +72,5 @@ export const characterSlice = createSlice({
   },
 })
 
-export const { reset } = characterSlice.actions
-export default characterSlice.reducer
+export const { reset } = ingredientSlice.actions
+export default ingredientSlice.reducer

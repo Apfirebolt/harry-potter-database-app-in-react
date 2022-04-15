@@ -3,6 +3,7 @@ import characterService from './characterService'
 
 const initialState = {
   characters: [],
+  character: {},
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -11,11 +12,10 @@ const initialState = {
 
 // Get all characters
 export const getCharacters = createAsyncThunk(
-  'notes/getAll',
-  async (ticketId, thunkAPI) => {
+  'characters/getAll',
+  async (_, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token
-      return await characterService.getNotes(ticketId, token)
+      return await characterService.getCharacters()
     } catch (error) {
       const message =
         (error.response &&
@@ -31,11 +31,10 @@ export const getCharacters = createAsyncThunk(
 
 // Get single character
 export const getSingleCharacter = createAsyncThunk(
-    'notes/getAll',
-    async (ticketId, thunkAPI) => {
+    'characters/getSingleCharacter',
+    async (characterId, thunkAPI) => {
       try {
-        const token = thunkAPI.getState().auth.user.token
-        return await characterService.getNotes(ticketId, token)
+        return await characterService.getSingleCharacter(characterId)
       } catch (error) {
         const message =
           (error.response &&
@@ -63,7 +62,7 @@ export const characterSlice = createSlice({
       .addCase(getCharacters.fulfilled, (state, action) => {
         state.isLoading = true
         state.isSuccess = true
-        state.notes = action.payload
+        state.characters = action.payload
       })
       .addCase(getCharacters.rejected, (state, action) => {
         state.isLoading = false

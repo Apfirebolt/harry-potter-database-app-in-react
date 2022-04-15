@@ -18,8 +18,8 @@ function App() {
             <Route path='/' element={<HomeScreen />} />
             <Route path='/characters' element={<CharacterScreen />} />
             <Route path='/houses' element={<HouseScreen />} />
-            <Route path='/elixir' element={<ElixirScreen />} />
-            <Route path='/spell' element={<SpellScreen />} />
+            <Route path='/elixirs' element={<ElixirScreen />} />
+            <Route path='/spells' element={<SpellScreen />} />
             <Route path='/ingredients' element={<IngredientScreen />} />
           </Routes>
           <Footer />

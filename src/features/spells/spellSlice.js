@@ -1,21 +1,21 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import characterService from './characterService'
+import spellService from './spellService'
 
 const initialState = {
-  characters: [],
+  spells: [],
+  spell: {},
   isError: false,
   isSuccess: false,
   isLoading: false,
   message: '',
 }
 
-// Get all characters
-export const getCharacters = createAsyncThunk(
-  'notes/getAll',
-  async (ticketId, thunkAPI) => {
+// Get all spells
+export const getSpells = createAsyncThunk(
+  'spells/getAll',
+  async (_, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token
-      return await characterService.getNotes(ticketId, token)
+      return await spellService.getSpells()
     } catch (error) {
       const message =
         (error.response &&
@@ -29,13 +29,12 @@ export const getCharacters = createAsyncThunk(
   }
 )
 
-// Get single character
-export const getSingleCharacter = createAsyncThunk(
-    'notes/getAll',
-    async (ticketId, thunkAPI) => {
+// Get single spell
+export const getSingleSpell = createAsyncThunk(
+    'spells/singleSpell',
+    async (spellId, thunkAPI) => {
       try {
-        const token = thunkAPI.getState().auth.user.token
-        return await characterService.getNotes(ticketId, token)
+        return await spellService.getSingleSpell(spellId)
       } catch (error) {
         const message =
           (error.response &&
@@ -49,23 +48,23 @@ export const getSingleCharacter = createAsyncThunk(
     }
   )
 
-export const characterSlice = createSlice({
-  name: 'character',
+export const spellSlice = createSlice({
+  name: 'spell',
   initialState,
   reducers: {
     reset: (state) => initialState,
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getCharacters.pending, (state) => {
+      .addCase(getSpells.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(getCharacters.fulfilled, (state, action) => {
+      .addCase(getSpells.fulfilled, (state, action) => {
         state.isLoading = true
         state.isSuccess = true
-        state.notes = action.payload
+        state.spells = action.payload
       })
-      .addCase(getCharacters.rejected, (state, action) => {
+      .addCase(getSpells.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
@@ -73,5 +72,5 @@ export const characterSlice = createSlice({
   },
 })
 
-export const { reset } = characterSlice.actions
-export default characterSlice.reducer
+export const { reset } = spellSlice.actions
+export default spellSlice.reducer

@@ -1,11 +1,11 @@
 import axios from 'axios'
 
-const API_URL = '/api/tickets/'
+const API_URL = 'https://wizard-world-api.herokuapp.com'
 
 // Get all Spells
 const getSpells = async () => {
 
-    const response = await axios.get(API_URL + '/wizards')
+    const response = await axios.get(API_URL + '/Spells')
 
     return response.data
 }
