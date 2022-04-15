@@ -1,14 +1,32 @@
-import { Button } from "@blueprintjs/core";
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import HomeScreen from './screens/Home'
+import CharacterScreen from './screens/Characters'
+import HouseScreen from './screens/Houses'
+import SpellScreen from './screens/Spells'
+import IngredientScreen from './screens/Ingredients'
+import ElixirScreen from './screens/Elixirs'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Button intent="success" text="button content" />
-      </header>
-    </div>
-  );
+    <>
+      <Router>
+        <div className='container'>
+          <Navbar />
+          <Routes>
+            <Route path='/' element={<HomeScreen />} />
+            <Route path='/characters' element={<CharacterScreen />} />
+            <Route path='/houses' element={<HouseScreen />} />
+            <Route path='/elixir' element={<ElixirScreen />} />
+            <Route path='/spell' element={<SpellScreen />} />
+            <Route path='/ingredients' element={<IngredientScreen />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </>
+  )
 }
 
-export default App;
+export default App
