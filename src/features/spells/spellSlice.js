@@ -3,7 +3,6 @@ import spellService from './spellService'
 
 const initialState = {
   spells: [],
-  spell: {},
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -28,25 +27,6 @@ export const getSpells = createAsyncThunk(
     }
   }
 )
-
-// Get single spell
-export const getSingleSpell = createAsyncThunk(
-    'spells/singleSpell',
-    async (spellId, thunkAPI) => {
-      try {
-        return await spellService.getSingleSpell(spellId)
-      } catch (error) {
-        const message =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString()
-  
-        return thunkAPI.rejectWithValue(message)
-      }
-    }
-  )
 
 export const spellSlice = createSlice({
   name: 'spell',

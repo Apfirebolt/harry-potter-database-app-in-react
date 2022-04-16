@@ -3,7 +3,6 @@ import ingredientService from './ingredientService'
 
 const initialState = {
   ingredients: [],
-  ingredient: {},
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -28,25 +27,6 @@ export const getIngredients = createAsyncThunk(
     }
   }
 )
-
-// Get single ingredient
-export const getSingleIngredient = createAsyncThunk(
-    'ingredients/singleIngredient',
-    async (ingredientId, thunkAPI) => {
-      try {
-        return await ingredientService.getSingleIngredient(ingredientId)
-      } catch (error) {
-        const message =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString()
-  
-        return thunkAPI.rejectWithValue(message)
-      }
-    }
-  )
 
 export const ingredientSlice = createSlice({
   name: 'ingredient',

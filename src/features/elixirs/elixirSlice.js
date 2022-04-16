@@ -3,7 +3,6 @@ import elixirService from './elixirService'
 
 const initialState = {
   elixirs: [],
-  elixir: {},
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -28,25 +27,6 @@ export const getElixirs = createAsyncThunk(
     }
   }
 )
-
-// Get single elixir
-export const getSingleElixir = createAsyncThunk(
-    'elixirs/singleelixir',
-    async (elixirId, thunkAPI) => {
-      try {
-        return await elixirService.getSingleelixir(elixirId)
-      } catch (error) {
-        const message =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString()
-  
-        return thunkAPI.rejectWithValue(message)
-      }
-    }
-  )
 
 export const elixirSlice = createSlice({
   name: 'elixir',

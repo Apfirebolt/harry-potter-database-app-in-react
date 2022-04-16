@@ -3,7 +3,6 @@ import houseService from './houseService'
 
 const initialState = {
   houses: [],
-  house: {},
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -28,25 +27,6 @@ export const getHouses = createAsyncThunk(
     }
   }
 )
-
-// Get single house
-export const getSingleHouse = createAsyncThunk(
-    'houses/singleHouse',
-    async (houseId, thunkAPI) => {
-      try {
-        return await houseService.getSingleHouse(houseId)
-      } catch (error) {
-        const message =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString()
-  
-        return thunkAPI.rejectWithValue(message)
-      }
-    }
-  )
 
 export const houseSlice = createSlice({
   name: 'house',
