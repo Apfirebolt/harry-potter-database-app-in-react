@@ -40,6 +40,9 @@ h1, h2, h3, h4, h5 {
 
 .house-card .info-container p {
   margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .house-card .trait-item {
@@ -48,4 +51,12 @@ h1, h2, h3, h4, h5 {
   background-color: #1D7324;
   padding: 1rem;
   color: #DCE0E5;
+}
+
+footer {
+  text-align: center;
+  background-color: #1C2127;
+  color: #F6F7F9;
+  padding: 1rem;
+  margin: 1rem auto;
 }

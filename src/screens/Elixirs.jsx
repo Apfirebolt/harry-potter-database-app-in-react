@@ -18,7 +18,7 @@ const ElixirsScreen = () => {
 
   return (
     <Fragment>
-      <p>Elixir Screen</p>
+      <h3>Elixir</h3>
       {isLoading && <Loader />}
       {elixirs.map((item) => (
         <Card interactive={true} elevation={Elevation.TWO} key={item.id}>

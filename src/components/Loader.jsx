@@ -4,7 +4,7 @@ import { Spinner } from "@blueprintjs/core";
 const Loader = () => {
   return (
     <Fragment>
-      <Spinner size={100} />
+      <Spinner size={100} style={{ margin: '1rem' }} />
     </Fragment>
   );
 };

@@ -34,6 +34,7 @@ const HousesScreen = () => {
               <p><span>Common Room</span>{item.commonRoom}</p>
               <p><span>Ghost</span>{item.ghost}</p>
             </div>
+            <h4>House Heads</h4>
             {item.heads &&
               item.heads.map((nestedItem) => (
                 <p>{nestedItem.firstName + " " + nestedItem.lastName}</p>

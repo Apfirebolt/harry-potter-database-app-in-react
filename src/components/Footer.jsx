@@ -3,7 +3,9 @@ import { Fragment } from "react";
 const Footer = () => {
   return (
     <Fragment>
-      <p>Footer is here..</p>
+      <footer>
+        Copyright@Harry Potter Database 2022
+      </footer>
     </Fragment>
   );
 };

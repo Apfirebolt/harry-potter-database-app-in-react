@@ -1,34 +1,44 @@
 import { Fragment } from "react";
-import { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { getIngredients } from '../features/ingredients/ingredientSlice'
-import { Button, Card, Elevation } from "@blueprintjs/core";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getIngredients } from "../features/ingredients/ingredientSlice";
+import { Card, InputGroup } from "@blueprintjs/core";
 import Loader from "../components/Loader";
 
 const IngredientScreen = () => {
   const { ingredients, isLoading, isSuccess } = useSelector(
     (state) => state.ingredient
-  )
+  );
 
-  const dispatch = useDispatch()
+  const [searchText, setSearchText] = useState("");
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getIngredients())
-  }, [dispatch])
+    dispatch(getIngredients());
+  }, [dispatch]);
 
   return (
     <Fragment>
-      <p>Ingredient Screen</p>
+      <h3>Ingredients</h3>
+
       {isLoading && <Loader />}
-      {ingredients.map((item) => (
-        <Card interactive={true} elevation={Elevation.TWO} key={item.id}>
-          <h5>
-            <a href="#">{item.name}</a>
-          </h5>
-          <p>Card content</p>
-          <Button>Submit</Button>
+      <div className="container">
+        <InputGroup
+          asyncControl={true}
+          large={true}
+          leftIcon="search"
+          onChange={(e) => setSearchText(e.target.value)}
+          placeholder="Search Ingredients..."
+          value={searchText}
+        />
+      
+        <Card style={{ marginTop: '0.5rem' }}>
+          {ingredients.filter(x => x.name.includes(searchText)).map((item) => (
+            <p key={item.id}>{item.name}</p>
+          ))}
         </Card>
-      ))}
+      </div>
     </Fragment>
   );
 };
