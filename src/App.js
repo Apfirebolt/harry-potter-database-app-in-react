@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Router>
-        <div className='container'>
+        <div>
           <Navbar />
           <Routes>
             <Route path='/' element={<HomeScreen />} />
