@@ -60,7 +60,7 @@ export const houseSlice = createSlice({
         state.isLoading = true
       })
       .addCase(getHouses.fulfilled, (state, action) => {
-        state.isLoading = true
+        state.isLoading = false
         state.isSuccess = true
         state.houses = action.payload
       })

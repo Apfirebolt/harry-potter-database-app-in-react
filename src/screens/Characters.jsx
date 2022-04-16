@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getCharacters } from '../features/characters/characterSlice'
+import Loader from "../components/Loader";
 
 const CharacterScreen = () => {
   const { characters, isLoading, isSuccess } = useSelector(

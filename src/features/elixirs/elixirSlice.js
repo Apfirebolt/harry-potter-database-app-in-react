@@ -60,7 +60,7 @@ export const elixirSlice = createSlice({
         state.isLoading = true
       })
       .addCase(getElixirs.fulfilled, (state, action) => {
-        state.isLoading = true
+        state.isLoading = false
         state.isSuccess = true
         state.elixirs = action.payload
       })

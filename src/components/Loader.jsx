@@ -1,9 +1,10 @@
 import { Fragment } from "react";
+import { Spinner } from "@blueprintjs/core";
 
 const Loader = () => {
   return (
     <Fragment>
-      <p>Loading..</p>
+      <Spinner size={100} />
     </Fragment>
   );
 };

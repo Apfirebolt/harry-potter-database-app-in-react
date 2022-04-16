@@ -60,7 +60,7 @@ export const characterSlice = createSlice({
         state.isLoading = true
       })
       .addCase(getCharacters.fulfilled, (state, action) => {
-        state.isLoading = true
+        state.isLoading = false
         state.isSuccess = true
         state.characters = action.payload
       })

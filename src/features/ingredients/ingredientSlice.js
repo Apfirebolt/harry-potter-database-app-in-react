@@ -60,7 +60,7 @@ export const ingredientSlice = createSlice({
         state.isLoading = true
       })
       .addCase(getIngredients.fulfilled, (state, action) => {
-        state.isLoading = true
+        state.isLoading = false
         state.isSuccess = true
         state.ingredients = action.payload
       })
