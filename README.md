@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Harry Potter Database App in React using Redux Toolkit and Blueprint UI ⚡️
 
-## Available Scripts
+## Project Briefing
 
-In the project directory, you can run:
+This is a simple database application which integrates with an open source Harry Potter API which I found recently deployed on Heroku.  It has end-points exposing details of spells, characters, potions and other things which exist in Harry Potter universe. 
 
-### `npm start`
+I recently learned about Redux toolkit in one of the courses I was enrolled in for learning React. This course had this project which used Redux toolkit for API data management through redux store. It uses service and slice based architecture and does not have separate actions file like in conventional redux based applications in React. I decided to use this API, create an app and experiment with the Redux tool kit approach of handling store data. That's just a brief story about why this app came into existence.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+As for UI, I try to experiment with different UI frameworks available for React and Vue. In this case, I went with Blueprint UI which is one of the popular UI frameworks for React having 18K stars on Github. I found it relatively easy to get started with, has a wide range of components to offer and a nice color schema.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Made with ❤️ by **[@apfirebolt](https://github.com/Apfirebolt/)**
 
-### `npm test`
+Please find me [here](https://apgiiit.com/)
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Demonstrates use of Redux store management for API data in React using Redux toolkit.
+- Demonstrates use of Blueprint UI for React Components like cards, buttons, accordions and more.
 
-### `npm run build`
+## Built With
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* [React](https://reactjs.org/)
+* [Redux](https://react-redux.js.org/)
+* [BluePrint UI React](https://blueprintjs.com/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Simply install node modules for the React app and you're done at least for the development mode.
 
-### `npm run eject`
+```
+npm install
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+For production, build the frontend of the app. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+npm run build
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Future Updates
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Expect UI improvements in near future for this app as I get more familiar with Blueprint UI.
+- Search bar to be added for searching spells, ingredients and more.
 
-## Learn More
+## Project Screenshots
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To be included later

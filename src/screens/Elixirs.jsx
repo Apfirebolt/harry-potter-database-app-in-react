@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getElixirs } from '../features/elixirs/elixirSlice'
 import { Button, Card, Elevation } from "@blueprintjs/core";
+import Loader from "../components/Loader";
 
 const ElixirsScreen = () => {
   const { elixirs, isLoading, isSuccess } = useSelector(
