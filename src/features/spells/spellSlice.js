@@ -40,7 +40,7 @@ export const spellSlice = createSlice({
         state.isLoading = true
       })
       .addCase(getSpells.fulfilled, (state, action) => {
-        state.isLoading = true
+        state.isLoading = false
         state.isSuccess = true
         state.spells = action.payload
       })

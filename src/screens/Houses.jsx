@@ -37,12 +37,12 @@ const HousesScreen = () => {
             <h4>House Heads</h4>
             {item.heads &&
               item.heads.map((nestedItem) => (
-                <p>{nestedItem.firstName + " " + nestedItem.lastName}</p>
+                <p key={nestedItem.id}>{nestedItem.firstName + " " + nestedItem.lastName}</p>
               ))}
             <h4>House Traits</h4>
             {item.traits &&
               item.traits.map((nestedItem) => (
-                <p className="trait-item">{nestedItem.name}</p>
+                <p className="trait-item" key={nestedItem.id}>{nestedItem.name}</p>
               ))}
           </Card>
         ))}

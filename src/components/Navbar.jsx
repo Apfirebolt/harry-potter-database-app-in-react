@@ -11,6 +11,9 @@ const Navbar = () => {
         <NavLink to="/" className="bp4-button bp4-minimal bp4-icon-home">
           Home
         </NavLink>
+        <NavLink to="/spells" className="bp4-button bp4-minimal bp4-icon-clean">
+          Spells
+        </NavLink>
         <NavLink to="/houses" className="bp4-button bp4-minimal bp4-icon-office">
           Houses
         </NavLink>

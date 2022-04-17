@@ -3,7 +3,6 @@ import characterService from './characterService'
 
 const initialState = {
   characters: [],
-  character: {},
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -28,25 +27,6 @@ export const getCharacters = createAsyncThunk(
     }
   }
 )
-
-// Get single character
-export const getSingleCharacter = createAsyncThunk(
-    'characters/getSingleCharacter',
-    async (characterId, thunkAPI) => {
-      try {
-        return await characterService.getSingleCharacter(characterId)
-      } catch (error) {
-        const message =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString()
-  
-        return thunkAPI.rejectWithValue(message)
-      }
-    }
-  )
 
 export const characterSlice = createSlice({
   name: 'character',
