@@ -6,14 +6,14 @@ import { Card, Elevation } from "@blueprintjs/core";
 import Loader from "../components/Loader";
 
 const HousesScreen = () => {
-  const { houses, isLoading, isSuccess } = useSelector((state) => state.house);
+  const { houses, isLoading } = useSelector((state) => state.house);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getHouses());
   }, [dispatch]);
-  console.log("Houses ", houses, isLoading);
+  
   return (
     <Fragment>
       <div className="container">

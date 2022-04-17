@@ -40,6 +40,9 @@ For production, build the frontend of the app.
 npm run build
 npm start
 ```
+## Issues
+
+API data for the character section is far from complete, there is data available only for 15-20 characters from the franchise. API developers might address this later after which this would be updated. But, that is not a big issue.
 
 ## Future Updates
 
@@ -48,4 +51,12 @@ npm start
 
 ## Project Screenshots
 
-To be included later
+Please find some of the screenshots of the application.
+
+![alt text](./screenshots/home.png)
+
+![alt text](./screenshots/house.png)
+
+![alt text](./screenshots/elixir.png)
+
+![alt text](./screenshots/spells.png)
