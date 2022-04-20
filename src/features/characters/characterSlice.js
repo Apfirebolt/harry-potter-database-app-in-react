@@ -6,7 +6,7 @@ const initialState = {
   isError: false,
   isSuccess: false,
   isLoading: false,
-  message: '',
+  message: "",
 }
 
 // Get all characters
@@ -31,9 +31,6 @@ export const getCharacters = createAsyncThunk(
 export const characterSlice = createSlice({
   name: 'character',
   initialState,
-  reducers: {
-    reset: (state) => initialState,
-  },
   extraReducers: (builder) => {
     builder
       .addCase(getCharacters.pending, (state) => {

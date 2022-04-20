@@ -31,9 +31,6 @@ export const getHouses = createAsyncThunk(
 export const houseSlice = createSlice({
   name: 'house',
   initialState,
-  reducers: {
-    reset: (state) => initialState,
-  },
   extraReducers: (builder) => {
     builder
       .addCase(getHouses.pending, (state) => {

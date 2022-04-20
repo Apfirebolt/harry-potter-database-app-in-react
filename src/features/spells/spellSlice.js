@@ -31,9 +31,6 @@ export const getSpells = createAsyncThunk(
 export const spellSlice = createSlice({
   name: 'spell',
   initialState,
-  reducers: {
-    reset: (state) => initialState,
-  },
   extraReducers: (builder) => {
     builder
       .addCase(getSpells.pending, (state) => {
@@ -52,5 +49,4 @@ export const spellSlice = createSlice({
   },
 })
 
-export const { reset } = spellSlice.actions
 export default spellSlice.reducer

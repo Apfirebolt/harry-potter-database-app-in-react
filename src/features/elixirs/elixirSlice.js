@@ -31,9 +31,6 @@ export const getElixirs = createAsyncThunk(
 export const elixirSlice = createSlice({
   name: 'elixir',
   initialState,
-  reducers: {
-    reset: (state) => initialState,
-  },
   extraReducers: (builder) => {
     builder
       .addCase(getElixirs.pending, (state) => {
