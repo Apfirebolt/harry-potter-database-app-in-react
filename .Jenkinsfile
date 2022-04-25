@@ -9,12 +9,12 @@ pipeline {
         }
         stage('Develop') {
             steps {
-                bat label: 'React start script', script: 'C:\\Amit\\Projects\\React Projects\\react-harry-potter\\npm start'
+                bat label: 'React start script', script: 'npm.cmd run start'
             }
         }
         stage('Build') {
             steps {
-                bat label: 'React build script', script: 'C:\\Amit\\Projects\\React Projects\\react-harry-potter\\npm run build'
+                bat label: 'React build script', script: 'npm.cmd run build'
             }
         }
     }    
